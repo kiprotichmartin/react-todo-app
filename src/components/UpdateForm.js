@@ -1,0 +1,51 @@
+const UpdateForm = ({
+  updateData,
+  changeTask,
+  changePriority,
+  newTask,
+  setNewTask,
+  updateTask,
+  cancelUpdate,
+  newPriority,
+  setNewPriority,
+}) => {
+  return (
+    <>
+      {/* Update Task */}
+      <div className="row">
+        <div className="col-8">
+          <input
+            value={updateData && updateData.title}
+            onChange={(e) => changeTask(e)}
+            className="form-control form-control-lg"
+          />
+        </div>
+
+        <div className="col">
+          <select
+            name="priority"
+            value={updateData && updateData.priority}
+            onChange={(m) => changePriority(m)}
+            className="form-control form-control-lg"
+          >
+            <option value="low">Low</option>
+            <option value="mid">Mid</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div className="col-auto">
+          <button onClick={updateTask} className="btn btn-lg btn-success mr-20">
+            Update
+          </button>
+          <button onClick={cancelUpdate} className="btn btn-lg btn-warning">
+            Cancel
+          </button>
+        </div>
+      </div>
+      <br />
+    </>
+  );
+};
+
+export default UpdateForm;
