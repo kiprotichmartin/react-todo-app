@@ -86,19 +86,14 @@ function App() {
 
   // Change task for update
   ///////////////////////////
-  const changeTask = (e) => {
+  const changeTask = (e, m) => {
     let newEntry = {
       id: updateData.id,
       title: e.target.value,
-      // priority: changePriority = ,
+      priority: newPriority,
       status: updateData.status ? true : false,
     };
     setUpdateData(newEntry);
-  };
-
-  const changePriority = (m) => {
-    updateData["priority"] = m.target.value;
-    // setUpdateData(newEntry);
   };
 
   // Update task
@@ -130,14 +125,10 @@ function App() {
 
       {updateData && updateData ? (
         <UpdateForm
-          newTask={newTask}
-          setNewTask={setNewTask}
           updateData={updateData}
           changeTask={changeTask}
-          changePriority={changePriority}
           updateTask={updateTask}
           cancelUpdate={cancelUpdate}
-          newPriority={newPriority}
           setNewPriority={setNewPriority}
         />
       ) : (
@@ -159,7 +150,6 @@ function App() {
         markDone={markDone}
         setUpdateData={setUpdateData}
         deleteTask={deleteTask}
-        newPriority={newPriority}
       />
     </div>
   );

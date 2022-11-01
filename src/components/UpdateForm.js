@@ -1,19 +1,15 @@
 const UpdateForm = ({
   updateData,
   changeTask,
-  changePriority,
-  newTask,
-  setNewTask,
   updateTask,
   cancelUpdate,
-  newPriority,
   setNewPriority,
 }) => {
   return (
     <>
       {/* Update Task */}
       <div className="row">
-        <div className="col-8">
+        <div className="col-7">
           <input
             value={updateData && updateData.title}
             onChange={(e) => changeTask(e)}
@@ -25,7 +21,7 @@ const UpdateForm = ({
           <select
             name="priority"
             value={updateData && updateData.priority}
-            onChange={(m) => changePriority(m)}
+            onChange={(m) => setNewPriority(m.target.value)}
             className="form-control form-control-lg"
           >
             <option value="low">Low</option>
